@@ -34,33 +34,36 @@
 		});
 
 	// Nav.
+	// NOTE: Mobile navigation (navButton and navPanel) is now created in components.js
+	// after the header is loaded, to ensure the nav menu is available when needed.
+	// The code below is commented out to prevent creating empty navigation elements.
 
 		// Button.
-			$(
-				'<div id="navButton">' +
-					'<a href="#navPanel" class="toggle"></a>' +
-				'</div>'
-			)
-				.appendTo($body);
+			// $(
+			// 	'<div id="navButton">' +
+			// 		'<a href="#navPanel" class="toggle"></a>' +
+			// 	'</div>'
+			// )
+			// 	.appendTo($body);
 
 		// Panel.
-			$(
-				'<div id="navPanel">' +
-					'<nav>' +
-						'<a href="index.html" class="link depth-0">Home</a>' +
-						$('#nav').navList() +
-					'</nav>' +
-				'</div>'
-			)
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'top',
-					target: $body,
-					visibleClass: 'navPanel-visible'
-				});
+			// $(
+			// 	'<div id="navPanel">' +
+			// 		'<nav>' +
+			// 			'<a href="index.html" class="link depth-0">Home</a>' +
+			// 			$('#nav').navList() +
+			// 		'</nav>' +
+			// 	'</div>'
+			// )
+			// 	.appendTo($body)
+			// 	.panel({
+			// 		delay: 500,
+			// 		hideOnClick: true,
+			// 		resetScroll: true,
+			// 		resetForms: true,
+			// 		side: 'top',
+			// 		target: $body,
+			// 		visibleClass: 'navPanel-visible'
+			// 	});
 
 })(jQuery);
