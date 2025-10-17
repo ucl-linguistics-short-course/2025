@@ -13,6 +13,49 @@ $(document).ready(function() {
 		} else if (page === 'about') {
 			$('.nav-about').addClass('current');
 		}
+
+		// Reinitialize dropdowns after header is loaded
+		$('#nav > ul').dropotron({
+			mode: 'fade',
+			speed: 300,
+			alignment: 'center',
+			noOpenerFade: true
+		});
+
+		// Remove existing mobile nav elements if they exist
+		if ($('#navPanel').length) {
+			$('#navPanel').remove();
+		}
+		if ($('#navButton').length) {
+			$('#navButton').remove();
+		}
+
+		// Create nav button for mobile
+		$(
+			'<div id="navButton">' +
+				'<a href="#navPanel" class="toggle"></a>' +
+			'</div>'
+		)
+			.appendTo($('body'));
+
+		// Create nav panel with proper content
+		$(
+			'<div id="navPanel">' +
+				'<nav>' +
+					$('#nav').navList() +
+				'</nav>' +
+			'</div>'
+		)
+			.appendTo($('body'))
+			.panel({
+				delay: 500,
+				hideOnClick: true,
+				resetScroll: true,
+				resetForms: true,
+				side: 'top',
+				target: $('body'),
+				visibleClass: 'navPanel-visible'
+			});
 	});
 
 	// Load footer

@@ -10,6 +10,66 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Adjust course title font size */
+			#content header h4 {
+				font-size: 1.5em;
+			}
+			/* Adjust instructor name font size */
+			#content header p {
+				font-size: 1em;
+			}
+			/* Term section visual hierarchy */
+			#content section[id^="term"] > h3 {
+				font-size: 2em;
+				color: #333;
+				border-bottom: 3px solid #d52349;
+				padding-bottom: 0.5em;
+				margin-bottom: 1.5em;
+				margin-top: 0.5em;
+			}
+			/* Add spacing after each course */
+			#content section[id^="term"] > hr {
+				margin: 2.5em 0;
+				border: 0;
+				border-top: 1px solid #ddd;
+			}
+			/* Fix Quick Navigation alignment */
+			#sidebar .actions {
+				list-style: none;
+				padding-left: 0;
+				margin-left: 0;
+			}
+			#sidebar .actions li {
+				padding-left: 0 !important;
+				margin-left: 0 !important;
+				text-indent: 0 !important;
+			}
+			#sidebar .actions li a.button {
+				text-align: center;
+				display: block;
+			}
+			/* Fix mobile navigation height - make it fit content instead of 50vh */
+			@media screen and (max-width: 736px) {
+				#navPanel {
+					height: auto !important;
+					max-height: 50vh !important;
+				}
+				#navPanel nav {
+					padding-bottom: 1em;
+				}
+				body.navPanel-visible #page-wrapper,
+				body.navPanel-visible #navButton {
+					transform: translateY(250px) !important;
+				}
+				#navPanel {
+					transform: translateY(-250px) !important;
+				}
+				body.navPanel-visible #navPanel {
+					transform: translateY(0) !important;
+				}
+			}
+		</style>
 	</head>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
@@ -32,9 +92,9 @@
 												<h3>Quick Navigation</h3>
 											</header>
 											<ul class="actions" style="display: flex; flex-direction: column; gap: 0.5em;">
-												<li><a href="#term1" class="button" style="width: 100%;">Term 1: Morphology</a></li>
-												<li><a href="#term2" class="button" style="width: 100%;">Term 2: Exp. Pragmatics</a></li>
-												<li><a href="#term3" class="button" style="width: 100%;">Term 3: TBA</a></li>
+												<li><a href="#term1" class="button" style="width: 100%;">Term 1</a></li>
+												<li><a href="#term2" class="button" style="width: 100%;">Term 2</a></li>
+												<li><a href="#term3" class="button" style="width: 100%;">Term 3</a></li>
 											</ul>
 										</section>
 										<section>
@@ -56,7 +116,7 @@
 									<article id="content">
 										<header>
 											<h2>Course Offerings 25/26</h2>
-											<p>Explore our comprehensive range of linguistics courses taught by UCL PhD students and postdoctoral researchers.</p>
+											<p>Explore our comprehensive range of linguistics courses taught by <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students and postdoctoral researchers. Visit the <a href="https://ucl-linguistics-short-course.github.io/" target="_blank">UCL Linguistics Short Courses homepage</a> for more information about our programme.</p>
 										</header>
 
 										<!-- Term 1 -->
@@ -66,9 +126,11 @@
 											<!-- Presupposition Course -->
 											<header>
 												<h4>Presupposition</h4>
-												<p><strong>Instructor:</strong> Timothy Jantarungsee<br />
+												<p><strong>Instructor:</strong> <a href="mailto:t.jantarungsee@ucl.ac.uk">Timothy Jantarungsee</a><br />
 												<strong>Email:</strong> <a href="mailto:t.jantarungsee@ucl.ac.uk">t.jantarungsee@ucl.ac.uk</a></p>
 											</header>
+
+											<p><em>Tim Jantarungsee is a PhD student at <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> specialising in formal semantics and endangered language documentation. His research interests include the semantics of modal "ability" expressions, cross-linguistic lexical semantics of "eating" predicates, fieldwork methodology, language policy and decolonising linguistics, working with minoritised languages in East and South-East Asia.</em></p>
 
 											<p><strong>Week 1: Thursday 23rd, 11:00am - 12:00pm, CH G06</strong></p>
 											<p>This week will cover all the empirical properties of presuppositions, distinguishing them from other types of implications and talk a little about the history and overview some of the core theories (will dive deeper into them in the following weeks). Theories of presupposition straddle the line between formal semantics & pragmatics, so one of the goals will be to try and make that line explicit so we can see exactly how they interface.</p>
@@ -86,59 +148,78 @@
 											<!-- Morphology Course -->
 											<header>
 												<h4>Introduction to Morphology</h4>
-												<p><strong>Instructor:</strong> Abdullah Almuhaysh</p>
+												<p><strong>Instructor:</strong> <a href="mailto:abdullah.almuhaysh.22@ucl.ac.uk">Abdullah Almuhaysh</a><br />
+												<strong>Email:</strong> <a href="mailto:abdullah.almuhaysh.22@ucl.ac.uk">abdullah.almuhaysh.22@ucl.ac.uk</a></p>
 											</header>
+
+											<p><em>Abdullah Almuhaysh is a PhD student at <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> specializing in the morphosyntax of Arabic tense and aspect. He also delves into phonology (autosegmental morphophonology) and the formal semantics of tense and aspect in order to account for modern Arabic dialects and how they lexicalize their VPs and auxiliaries.</em></p>
 
 											<p>Morphology is the branch of linguistics that studies words by asking questions such as: What are words? How are they structured? The aim of this course is to familiarize students with crosslinguistic morphological phenomena and terminology before tackling work on theoretical frameworks. We will also consider how syntax, semantics, and phonology are related to morphology. Thus, this class is a buffet that invites the students to sample the delicious dishes of morphology in hopes of indulging into them further in the future.</p>
 
-											<h4>Week 1: What Is Morphology About?</h4>
+											<h4><strong>Week 1: What Is Morphology About?</strong></h4>
 											<p>We will begin the first day by easing our way in and introducing key terminology about morphology. This should serve either as an appetizer to totally new students, or a refresher to students familiar with the different morphological units (such as morphemes). We will also briefly look at the inflection vs derivational dichotomy, as well as the concept of allomorphy.</p>
 
-											<h4>Week 2: More Morphological Phenomena</h4>
+											<h4><strong>Week 2: More Morphological Phenomena</strong></h4>
 											<p>During the second week, we will explore general morphological phenomena, such as borrowing, compunding, and clipping. However, we will consider very interesting phenomena such as suppletion, syncretism, word classes (such as gender), and zero morphology.</p>
 
-											<h4>Week 3: The Morphology and Phonology Interface: Autosegmental (Morpho)phonology</h4>
+											<h4><strong>Week 3: The Morphology and Phonology Interface: Autosegmental (Morpho)phonology</strong></h4>
 											<p>During the third week, we will tackle the problem of non-concatenative morphology: Cases where morphological operations seem to be disjoined, unlike English's dominantly concatenative morphology (base-suffix patterns). We will focus greatly on languages such as Arabic and how they employ templatic morphology in order insert disjoined affixes. We will see how morphological affixation is not restricted to consonants and vowels, but also to suprasegmental elements such as tone and stress, and subsegmentals such as phonological features (+nasal, -plosive, etc).</p>
 
-											<h4>Week 4: Morphosyntax: The Morphology and Syntax Interface</h4>
+											<h4><strong>Week 4: Morphosyntax: The Morphology and Syntax Interface</strong></h4>
 											<p>During the fourth week, we will ponder the status of morphology and syntax. We will see how they are similar in their structuring (constituents in words and sentences). We will also take a closer look at morphosyntactic phenomena such as agreement and concord, Mark Baker 1985's mirror principle, verbal auxiliary data, and an interesting morphophonology constraint on the comparative and superlative morphosyntax of Hasawi Arabic.</p>
 
-											<h4>Week 5: Morphological Universals: *ABA and Greenberg Universal 20 in Morphology</h4>
+											<h4><strong>Week 5: Morphological Universals: *ABA and Greenberg Universal 20 in Morphology</strong></h4>
 											<p>In the final session, we will consider two postulated universal constraints in morphology: Bobaljik 2012's *ABA constraint and Kloudova 2020's take of Greenberg Universal 20 in morphology. We will see how these constraints are related to phenomena such as syncretism, suppletion, and morphological containment. Finally, we will point towards an entrance to morphological theory before concluding the course.</p>
 										</section>
 
 										<!-- Term 2 -->
 										<section id="term2" style="margin-bottom: 3em;">
+											<h3>Term 2 Courses</h3>
+
+											<!-- Experimental Pragmatics Course -->
 											<header>
-												<h3>Term 2: Topics in Experimental Pragmatics</h3>
-												<p><strong>Instructors:</strong> Erying Qin, Shenshen Wang<br />
-												<strong>Zoom Link:</strong> <a href="[zoom-link-placeholder]">Join Session</a></p>
+												<h4>Topics in Experimental Pragmatics</h4>
+												<p><strong>Instructors:</strong> <a href="https://profiles.ucl.ac.uk/84876-erying-qin" target="_blank">Erying Qin</a>, <a href="mailto:joseph.petrie.22@ucl.ac.uk">Joseph Keir Petrie</a><br />
+												<strong>Email:</strong> <a href="mailto:erying.qin.18@ucl.ac.uk">erying.qin.18@ucl.ac.uk</a>, <a href="mailto:joseph.petrie.22@ucl.ac.uk">joseph.petrie.22@ucl.ac.uk</a></p>
 											</header>
+
+											<p><em><a href="https://profiles.ucl.ac.uk/84876-erying-qin" target="_blank">Erying Qin</a> is a PhD student at <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> working on experimental pragmatics, which aims to use methodologies drawn from experimental psychology to investigate current theories of semantics and pragmatics for human language. Her doctoral work focuses on scalar inferences for different scalar words, particularly for paucal quantifiers.</em></p>
 
 											<p>Pragmatics is the branch of linguistics concerned with context-dependent meaning, compared to semantics that deals with the meaning of words and sentences in isolation. As a relatively new research area, experimental pragmatics is a subfield of pragmatics that uses empirical, experimental methods to study how meaning is shaped by factors like the speaker's intentions, the listener's interpretation, the context of the conversation, and social norms. In this module, we consider examples of research topics in experimental pragmatics and cognitive mechanisms (e.g., reaction time, working memory load) which are used to investigate theories in pragmatics research.</p>
 
-											<h4>Day 1: Introduction to experimental pragmatics</h4>
+											<h4><strong>Day 1: Introduction to experimental pragmatics</strong></h4>
 											<p>In the first half of this session, we will introduce experimental pragmatics and its research topics in general. If time permits, we will take a glance at the concept of Scalar Inference (or Scalar Implicature, if you like), which is one of the commonly-studied pragmatic phenomena.</p>
 
-											<h4>Day 2: Scalar Inferences: what working memory tells us about pragmatic inferences</h4>
+											<h4><strong>Day 2: Scalar Inferences: what working memory tells us about pragmatic inferences</strong></h4>
 											<p>This session will explore the studies on Scalar Inferences. We will take working memory as an example - to see how methods commonly used in psychology/psycholinguistics experiments can be applied to answer research questions in experimental pragmatics.</p>
 
-											<h4>Day 3: Perspective-taking in implicature derivation: what developmental study tells us about pragmatic inferences</h4>
+											<h4><strong>Day 3: Perspective-taking in implicature derivation: what developmental study tells us about pragmatic inferences</strong></h4>
 											<p>In this session, we will discuss inferences in a more general way. As pragmatics focuses on how meaning can vary depending on the speaker's and listener's perspectives, and there is usually a developmental difference in perspective-taking between children and adults, research that incorporates these factors adds another piece to the puzzle of studies on pragmatic inferences.</p>
 
-											<h4>Day 4: Why Are Negative Sentences Hard to Process?</h4>
+											<h4><strong>Day 4: Why Are Negative Sentences Hard to Process?</strong></h4>
 											<p>This session will present various experimental findings and review current accounts of negation processing. Why are negative sentences generally more demanding to process than affirmative ones? How can we explain this difficulty? Specifically, we will explore the extra cognitive effort required to interpret negative sentences and examine the role that positive arguments play in this process.</p>
 
-											<h4>Day 5: Another Look from the Dynamic Pragmatic View: Evidence Across Different Tasks</h4>
+											<h4><strong>Day 5: Another Look from the Dynamic Pragmatic View: Evidence Across Different Tasks</strong></h4>
 											<p>In this session, we will evaluate the dynamic pragmatic view of negation processing, drawing on evidence from various experimental pragmatics tasks. In particular, we will focus on one negation and the sentence-picture verification task. Additionally, we will review many factors at play in verification tasks when negation is involved, highlighting how these factors may influence processing.</p>
+
+											<hr style="margin: 2em 0;" />
+
+											<!-- Syntax Course -->
+											<header>
+												<h4>Syntax | NP Ellipsis</h4>
+												<p><strong>Instructor:</strong> <a href="https://profiles.ucl.ac.uk/90305-anh-duy-la" target="_blank">Andrew Duy La</a><br />
+												<strong>Email:</strong> <a href="mailto:anh.la.19@ucl.ac.uk">anh.la.19@ucl.ac.uk</a></p>
+											</header>
+
+											<p>Course details and weekly topics will be announced soon. This course will explore NP ellipsis phenomena from a syntactic perspective. Taught by <a href="https://profiles.ucl.ac.uk/90305-anh-duy-la" target="_blank">Andrew Duy La</a>, a PhD student at <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a>.</p>
+
+											<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel sem sit dolor neque semper magna. This is a placeholder for the upcoming syntax course on NP Ellipsis. Full course description and weekly breakdown will be provided at the start of Term 2.</em></p>
 										</section>
 
 										<!-- Term 3 -->
-										<section id="term3">
-											<header>
-												<h3>Term 3: To Be Announced</h3>
-											</header>
-											<p>Term 3 course details will be announced soon. Join our mailing list to stay updated!</p>
+										<section id="term3" style="margin-bottom: 3em;">
+											<h3>Term 3 Courses</h3>
+											<p>Term 3 course details will be announced soon. <a href="mailto:chenjia.gao.18@ucl.ac.uk">Join our mailing list</a> to stay updated!</p>
 										</section>
 									</article>
 

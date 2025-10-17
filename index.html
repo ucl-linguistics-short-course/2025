@@ -5,6 +5,28 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Fix mobile navigation height - make it fit content instead of 50vh */
+			@media screen and (max-width: 736px) {
+				#navPanel {
+					height: auto !important;
+					max-height: 50vh !important;
+				}
+				#navPanel nav {
+					padding-bottom: 1em;
+				}
+				body.navPanel-visible #page-wrapper,
+				body.navPanel-visible #navButton {
+					transform: translateY(250px) !important;
+				}
+				#navPanel {
+					transform: translateY(-250px) !important;
+				}
+				body.navPanel-visible #navPanel {
+					transform: translateY(0) !important;
+				}
+			}
+		</style>
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
@@ -34,7 +56,7 @@
 					<section class="container">
 						<header class="major">
 							<h2>About us</h2>
-							<p>We are a short training program, organized by UCL Linguistics PhD students, aimed at introducing students of all levels to a broad range of linguistics topics.</p>						</header>
+							<p>We are a short training program, organized by <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students, aimed at introducing students of all levels to a broad range of linguistics topics.</p>						</header>
 						<div class="row features">
 							<section class="col-12-mobile feature">
 								<!-- <div class="image-wrapper first">
@@ -67,49 +89,31 @@
 				<div class="wrapper">
 					<div class="container">
 						<header class="major" style="text-align: center; margin-bottom: 2em;">
-							<h2>Featured Courses</h2>
+							<h2>Why Join Our Programme?</h2>
 						</header>
 						<div class="row">
 							<section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper first">
-									<a href="courses.html#term1" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-								</div>
 								<header>
-									<h3>Presupposition</h3>
-									<p style="margin: 0;"><em>Term 1 - Timothy Jantarungsee</em></p>
+									<h3>Free & Accessible</h3>
 								</header>
-								<p>Explore the empirical properties of presuppositions and how theories straddle the line between formal semantics & pragmatics. First session: Thursday 23rd, 11am-12pm, CH G06.</p>
-								<ul class="actions">
-									<li><a href="courses.html#term1" class="button">Learn More</a></li>
-								</ul>
+								<p>All courses are completely free to attend and open to everyone—from complete beginners to those already familiar with linguistics. No prerequisites, no barriers, just learning.</p>
 							</section>
 							<section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper">
-									<a href="courses.html#term1" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-								</div>
 								<header>
-									<h3>Introduction to Morphology</h3>
-									<p style="margin: 0;"><em>Term 1 - Abdullah Almuhaysh</em></p>
+									<h3>Expert-Led Sessions</h3>
 								</header>
-								<p>Study words and their structure. A 5-week course exploring crosslinguistic morphological phenomena and the interfaces between morphology, syntax, semantics, and phonology.</p>
-								<ul class="actions">
-									<li><a href="courses.html#term1" class="button">Learn More</a></li>
-								</ul>
+								<p>Learn from <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students and postdoctoral researchers who are passionate about sharing their expertise. Each 5-session course dives deep into specialized topics.</p>
 							</section>
 							<section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper">
-									<a href="courses.html#term2" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-								</div>
 								<header>
-									<h3>Experimental Pragmatics</h3>
-									<p style="margin: 0;"><em>Term 2 - Erying Qin & Shenshen Wang</em></p>
+									<h3>Earn Your Certificate</h3>
 								</header>
-								<p>Explore how meaning is shaped by context using empirical methods. Topics include scalar inferences, perspective-taking, and negation processing.</p>
-								<ul class="actions">
-									<li><a href="courses.html#term2" class="button">Learn More</a></li>
-								</ul>
+								<p>Upon completion of each course, you'll receive a certificate of participation sent directly to your email—perfect for your CV or academic portfolio.</p>
 							</section>
 						</div>
+						<ul class="actions major" style="margin-top: 2em;">
+							<li><a href="courses.html" class="button">View All Courses</a></li>
+						</ul>
 					</div>
 				</div>
 
