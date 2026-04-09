@@ -26,9 +26,144 @@
 					transform: translateY(0) !important;
 				}
 			}
+
+			/* ── Course-complete celebration styles ── */
+			#confetti-canvas {
+				position: fixed;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+				pointer-events: none;
+				z-index: 9999;
+			}
+
+			.wrap-badge {
+				display: inline-block;
+				background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+				color: #fff;
+				padding: 0.35em 1.1em;
+				border-radius: 2em;
+				font-size: 0.78em;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				margin-bottom: 0.9em;
+				box-shadow: 0 4px 18px rgba(255, 165, 0, 0.45);
+				animation: badgePop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+			}
+
+			@keyframes badgePop {
+				from { transform: scale(0) rotate(-12deg); opacity: 0; }
+				to   { transform: scale(1) rotate(0deg);  opacity: 1; }
+			}
+
+			/* Shimmer sweep on the hero h2 */
+			#hero header h2 {
+				background: linear-gradient(90deg, #fff 0%, #fff 30%, #ffe88a 50%, #fff 70%, #fff 100%);
+				background-size: 250% auto;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				animation: shimmerSweep 3.5s linear 1.2s infinite;
+			}
+
+			@keyframes shimmerSweep {
+				0%   { background-position: 200% center; }
+				100% { background-position: -200% center; }
+			}
+
+			/* Thank-you banner */
+			#thankyou-banner {
+				background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+				padding: 4em 0;
+				text-align: center;
+				overflow: hidden;
+				position: relative;
+			}
+
+			#thankyou-banner .stars {
+				position: absolute;
+				inset: 0;
+				background-image:
+					radial-gradient(1.5px 1.5px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+					radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+					radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+					radial-gradient(1.5px 1.5px at 70% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+					radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+					radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+					radial-gradient(1.5px 1.5px at 60% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+					radial-gradient(1px 1px at 92% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+					radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+					radial-gradient(1px 1px at 78% 90%, rgba(255,255,255,0.4) 0%, transparent 100%);
+				animation: twinkle 4s ease-in-out infinite alternate;
+			}
+
+			@keyframes twinkle {
+				0%   { opacity: 0.6; }
+				100% { opacity: 1; }
+			}
+
+			#thankyou-banner h2 {
+				color: #ffd700;
+				font-size: 2.8em;
+				margin: 0 0 0.3em;
+				position: relative;
+				animation: fadeUp 0.8s ease 0.2s both;
+			}
+
+			#thankyou-banner p {
+				color: rgba(255,255,255,0.85);
+				font-size: 1.15em;
+				max-width: 580px;
+				margin: 0 auto 1.6em;
+				line-height: 1.7;
+				position: relative;
+				animation: fadeUp 0.8s ease 0.5s both;
+			}
+
+			#thankyou-banner .diploma-icon {
+				font-size: 4em;
+				display: block;
+				margin-bottom: 0.3em;
+				position: relative;
+				animation: diplomaBounce 2s ease-in-out 1s infinite;
+			}
+
+			@keyframes diplomaBounce {
+				0%, 100% { transform: translateY(0) rotate(-3deg); }
+				50%       { transform: translateY(-8px) rotate(3deg); }
+			}
+
+			@keyframes fadeUp {
+				from { opacity: 0; transform: translateY(20px); }
+				to   { opacity: 1; transform: translateY(0); }
+			}
+
+			/* Year stats — highlight "complete" */
+			.stat-complete h3 {
+				color: #27ae60 !important;
+			}
+
+			/* Muted hero button for "view materials" */
+			#hero .actions .button-secondary {
+				background: transparent;
+				border: 2px solid rgba(255,255,255,0.6);
+				color: #fff;
+				margin-left: 0.8em;
+			}
+			#hero .actions .button-secondary:hover {
+				background: rgba(255,255,255,0.15);
+			}
+
+			/* Promo updated */
+			#promo h2 {
+				font-size: 2em;
+			}
 		</style>
 	</head>
 	<body class="homepage is-preload">
+		<!-- Confetti canvas (sits on top of everything, pointer-events: none) -->
+		<canvas id="confetti-canvas"></canvas>
+
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -38,121 +173,116 @@
 				<!-- Hero -->
 				<section id="hero" class="container">
 					<header>
+						<div class="wrap-badge">That's a Wrap — 25/26 Complete</div>
 						<h2>
 							<a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics">UCL Linguistics</a> Short Courses
 							<br/>
 							25/26
 						</h2>
 					</header>
-					<p>Short courses in Linguistics taught by PhDs and post-doctoral researchers.</p>
+					<p>Thank you to everyone who joined us this year — instructors, students, and supporters alike.</p>
 					<ul class="actions">
-						<li><a href="https://forms.gle/ZPsBZ1Ro11rKgzhQ6" target="_blank" class="button">Join Mailing List</a></li>
+						<li><a href="courses.html" class="button">View Course Materials</a></li>
+						<li><a href="https://forms.gle/ZPsBZ1Ro11rKgzhQ6" target="_blank" class="button button-secondary">Stay in Touch</a></li>
 					</ul>
 				</section>
 			</div>
 
-				<!-- Features 2 -->
-				<div class="wrapper">
-					<section class="container">
-						<header class="major">
-							<h2>About us</h2>
-							<p>We are a short training programme, organised by <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students, aimed at introducing students of all levels to a broad range of linguistics topics.</p>						</header>
-						<div class="row features">
-							<section class="col-12-mobile feature">
-								<!-- <div class="image-wrapper first">
-									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-								</div> -->
-								<p>With even more modules this year, we're covering a wider range of topics like Syntax, Semantics, Pragmatics, Morphology, and Psycholinguistics. These 5-session courses will run across all three terms and are free to attend and open to everyone. Whether you're accompanying your studies or just looking to dive deeper into these fascinating areas, we've got you covered.</p>
-							</section>
-							<!-- <section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur
-								vel sem sit dolor neque semper magna lorem ipsum.</p>
-							</section>
-							<section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur
-								vel sem sit dolor neque semper magna lorem ipsum.</p>
-							</section> -->
-						</div>
-						<ul class="actions major">
-							<li><a href="courses.html" class="button">Explore our courses</a></li>
-						</ul>
-					</section>
+			<!-- Thank You Banner -->
+			<div id="thankyou-banner">
+				<div class="stars"></div>
+				<div class="container">
+					<span class="diploma-icon">🎓</span>
+					<h2>Thank You!</h2>
+					<p>The UCL Linguistics Short Courses 25/26 programme has come to a close. It's been a fantastic year of exploring Syntax, Semantics, Pragmatics, Morphology, and more — together.</p>
+					<p style="color: #ffd700; font-size: 0.95em; font-weight: 600; position: relative; animation: fadeUp 0.8s ease 0.8s both;">All slides and handouts remain available below.</p>
 				</div>
+			</div>
+
+			<!-- About us -->
+			<div class="wrapper">
+				<section class="container">
+					<header class="major">
+						<h2>About this Programme</h2>
+						<p>A short training programme organised by <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students, introducing students of all levels to a broad range of linguistics topics.</p>
+					</header>
+					<div class="row features">
+						<section class="col-12-mobile feature">
+							<p>This year we covered a wider range of topics than ever before — Syntax, Semantics, Pragmatics, Morphology, and Psycholinguistics across three terms. These 5-session courses were free to attend and open to everyone. Whether you came to accompany your studies or out of curiosity, we hope you found something fascinating.</p>
+						</section>
+					</div>
+					<ul class="actions major">
+						<li><a href="courses.html" class="button">Browse Courses & Materials</a></li>
+					</ul>
+				</section>
+			</div>
 
 			<!-- Course Stats/Highlights -->
-				<div class="wrapper" style="background: #f8f8f8;">
-					<div class="container">
-						<header class="major" style="text-align: center; margin-bottom: 2em;">
-							<h2>This Year's Programme at a Glance</h2>
-						</header>
-						<div class="row" style="text-align: center;">
-							<section class="col-3 col-6-narrower">
-								<h3 style="color: #4a90e2; font-size: 3em; margin-bottom: 0.2em;">8+</h3>
-								<p style="font-size: 1.1em;"><strong>Courses Offered</strong><br/>Across all three terms</p>
-							</section>
-							<section class="col-3 col-6-narrower">
-								<h3 style="color: #4a90e2; font-size: 3em; margin-bottom: 0.2em;">5</h3>
-								<p style="font-size: 1.1em;"><strong>Linguistic Areas</strong><br/>Syntax, Semantics, Pragmatics, Morphology, Psycholinguistics</p>
-							</section>
-							<section class="col-3 col-6-narrower">
-								<h3 style="color: #4a90e2; font-size: 3em; margin-bottom: 0.2em;">5</h3>
-								<p style="font-size: 1.1em;"><strong>Sessions</strong><br/>Per course, 1 hour each</p>
-							</section>
-							<section class="col-3 col-6-narrower">
-								<h3 style="color: #4a90e2; font-size: 3em; margin-bottom: 0.2em;">100%</h3>
-								<p style="font-size: 1.1em;"><strong>Free to Attend</strong><br/>Open to everyone</p>
-							</section>
-						</div>
+			<div class="wrapper" style="background: #f8f8f8;">
+				<div class="container">
+					<header class="major" style="text-align: center; margin-bottom: 2em;">
+						<h2>25/26 Programme — Complete!</h2>
+					</header>
+					<div class="row" style="text-align: center;">
+						<section class="col-3 col-6-narrower stat-complete">
+							<h3 style="color: #27ae60; font-size: 3em; margin-bottom: 0.2em;">8+</h3>
+							<p style="font-size: 1.1em;"><strong>Courses Delivered</strong><br/>Across all three terms</p>
+						</section>
+						<section class="col-3 col-6-narrower stat-complete">
+							<h3 style="color: #27ae60; font-size: 3em; margin-bottom: 0.2em;">5</h3>
+							<p style="font-size: 1.1em;"><strong>Linguistic Areas</strong><br/>Syntax, Semantics, Pragmatics, Morphology, Psycholinguistics</p>
+						</section>
+						<section class="col-3 col-6-narrower stat-complete">
+							<h3 style="color: #27ae60; font-size: 3em; margin-bottom: 0.2em;">3</h3>
+							<p style="font-size: 1.1em;"><strong>Terms Completed</strong><br/>Autumn, Winter &amp; Spring</p>
+						</section>
+						<section class="col-3 col-6-narrower stat-complete">
+							<h3 style="color: #27ae60; font-size: 3em; margin-bottom: 0.2em;">100%</h3>
+							<p style="font-size: 1.1em;"><strong>Free to Attend</strong><br/>Open to everyone</p>
+						</section>
 					</div>
 				</div>
+			</div>
 
-			<!-- Features 1 -->
-				<div class="wrapper">
-					<div class="container">
-						<header class="major" style="text-align: center; margin-bottom: 2em;">
-							<h2>Why Join Our Programme?</h2>
-						</header>
-						<div class="row">
-							<section class="col-4 col-12-narrower feature">
-								<header>
-									<h3>Free & Accessible</h3>
-								</header>
-								<p>All courses are completely free to attend and open to everyone—from complete beginners to those already familiar with linguistics. No prerequisites, no barriers, just learning.</p>
-							</section>
-							<section class="col-4 col-12-narrower feature">
-								<header>
-									<h3>Expert-Led Sessions</h3>
-								</header>
-								<p>Learn from <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students and postdoctoral researchers who are passionate about sharing their expertise. Each 5-session course dives deep into specialised topics.</p>
-							</section>
-							<section class="col-4 col-12-narrower feature">
-								<header>
-									<h3>Earn Your Certificate</h3>
-								</header>
-								<p>Upon completion of each course, you'll receive a certificate of participation sent directly to your email—perfect for your CV or academic portfolio.</p>
-							</section>
-						</div>
-						<ul class="actions major" style="margin-top: 2em;">
-							<li><a href="schedule.html" class="button">View Schedule</a></li>
-						</ul>
+			<!-- Why Join -->
+			<div class="wrapper">
+				<div class="container">
+					<header class="major" style="text-align: center; margin-bottom: 2em;">
+						<h2>What Made This Programme Special</h2>
+					</header>
+					<div class="row">
+						<section class="col-4 col-12-narrower feature">
+							<header>
+								<h3>Free &amp; Accessible</h3>
+							</header>
+							<p>All courses were completely free to attend and open to everyone—from complete beginners to those already familiar with linguistics. No prerequisites, no barriers, just learning.</p>
+						</section>
+						<section class="col-4 col-12-narrower feature">
+							<header>
+								<h3>Expert-Led Sessions</h3>
+							</header>
+							<p>Taught by <a href="https://www.ucl.ac.uk/brain-sciences/pals/research/linguistics" target="_blank">UCL Linguistics</a> PhD students and postdoctoral researchers who are passionate about sharing their expertise. Each 5-session course dived deep into specialised topics.</p>
+						</section>
+						<section class="col-4 col-12-narrower feature">
+							<header>
+								<h3>Certificates of Participation</h3>
+							</header>
+							<p>Upon completion of each course, participants received a certificate of participation sent directly to their email—a great addition to any CV or academic portfolio.</p>
+						</section>
 					</div>
+					<ul class="actions major" style="margin-top: 2em;">
+						<li><a href="schedule.html" class="button">View Full Schedule</a></li>
+					</ul>
 				</div>
+			</div>
 
 			<!-- Promo -->
-				<div id="promo-wrapper">
-					<section id="promo">
-						<h2>Free to attend. Open to everyone.</h2>
-						<a href="https://forms.gle/ZPsBZ1Ro11rKgzhQ6" target="_blank" class="button">Join Mailing List</a>
-					</section>
-				</div>
-
-
+			<div id="promo-wrapper">
+				<section id="promo">
+					<h2>See you next year — stay on the mailing list!</h2>
+					<a href="https://forms.gle/ZPsBZ1Ro11rKgzhQ6" target="_blank" class="button">Join Mailing List</a>
+				</section>
+			</div>
 
 			<!-- Footer -->
 			<div id="footer-placeholder"></div>
@@ -160,13 +290,103 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/components.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/components.js"></script>
+
+		<!-- Confetti animation -->
+		<script>
+		(function () {
+			var canvas = document.getElementById('confetti-canvas');
+			var ctx = canvas.getContext('2d');
+
+			function resize() {
+				canvas.width  = window.innerWidth;
+				canvas.height = window.innerHeight;
+			}
+			resize();
+			window.addEventListener('resize', resize);
+
+			var colors = ['#ffd700','#ff6b6b','#4ecdc4','#45b7d1','#a29bfe','#fd79a8','#55efc4','#fdcb6e'];
+			var shapes = ['rect', 'circle', 'strip'];
+
+			var particles = [];
+			var COUNT = 160;
+
+			for (var i = 0; i < COUNT; i++) {
+				particles.push({
+					x:      Math.random() * window.innerWidth,
+					y:      Math.random() * -window.innerHeight * 1.2,
+					w:      Math.random() * 9 + 5,
+					h:      Math.random() * 4 + 3,
+					color:  colors[Math.floor(Math.random() * colors.length)],
+					shape:  shapes[Math.floor(Math.random() * shapes.length)],
+					rot:    Math.random() * Math.PI * 2,
+					rotSpd: (Math.random() - 0.5) * 0.12,
+					vx:     (Math.random() - 0.5) * 1.8,
+					vy:     Math.random() * 2.5 + 1.5,
+					wobble: Math.random() * Math.PI * 2,
+					wobSpd: Math.random() * 0.05 + 0.02
+				});
+			}
+
+			var startTime = null;
+			var DURATION  = 5500; /* ms */
+
+			function draw(ts) {
+				if (!startTime) startTime = ts;
+				var elapsed = ts - startTime;
+				var fadeOut = Math.max(0, (elapsed - DURATION * 0.65) / (DURATION * 0.35));
+
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+				if (fadeOut >= 1) return; /* stop drawing entirely */
+
+				particles.forEach(function (p) {
+					p.wobble += p.wobSpd;
+					p.x += p.vx + Math.sin(p.wobble) * 0.6;
+					p.y += p.vy;
+					p.rot += p.rotSpd;
+
+					/* recycle particles that fall off the bottom */
+					if (p.y > canvas.height + 20) {
+						p.y = -20;
+						p.x = Math.random() * canvas.width;
+					}
+
+					ctx.save();
+					ctx.translate(p.x, p.y);
+					ctx.rotate(p.rot);
+					ctx.globalAlpha = (1 - fadeOut) * (p.y < 0 ? 0 : 1);
+					ctx.fillStyle = p.color;
+
+					if (p.shape === 'circle') {
+						ctx.beginPath();
+						ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
+						ctx.fill();
+					} else if (p.shape === 'strip') {
+						ctx.fillRect(-p.w * 1.5, -p.h / 2, p.w * 3, p.h);
+					} else {
+						ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+					}
+
+					ctx.restore();
+				});
+
+				if (elapsed < DURATION) {
+					requestAnimationFrame(draw);
+				} else {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+				}
+			}
+
+			requestAnimationFrame(draw);
+		})();
+		</script>
 
 	</body>
 </html>
